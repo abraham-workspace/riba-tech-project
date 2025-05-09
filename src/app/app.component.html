@@ -1,6 +1,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <nav class="navbar">
@@ -22,6 +23,7 @@
       <a href="#services-consulting" class="dropdown-item">Consulting</a>
       <a href="#services-integration" class="dropdown-item">Integration</a>
       <a href="#services-support" class="dropdown-item">Support</a>
+      <a href="#more" class="dropdown-item">More</a>
     </div>
   </div>
   <div class="dropdown">
@@ -33,6 +35,7 @@
       <a href="#tech-angular" class="dropdown-item">Angular</a>
       <a href="#tech-node" class="dropdown-item">Node.js</a>
       <a href="#tech-ai" class="dropdown-item">AI & ML</a>
+      <a href="#tech-ai" class="dropdown-item">More</a>
     </div>
   </div>
   <a href="#careers" class="nav-link">Careers</a>
@@ -44,68 +47,318 @@
 </div>
 </nav>
 
+
+
 <!-- Sections -->
 <section id="framework"> 
-     <div class="missionStatement"> 
-      <h3>We Turn<br>requirements into<br>remarkable software - efficiently.</h3>
-      <h4>We Deliver Innovative, Secure, Scalable, and<br>
-      Reliable Digital Solutions for Individuals and<br>
-      Businesses Worldwide.</h4>
-      <button class="getStartedBtn">
-        Get Started <span class="arrow">→</span>
-      </button>
-   </div>
-    <img [src]="teamOfEngineers" alt="Team of Software Engineers" class="teamImage">
-    <div class="card-container">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img [src]="build" alt="Build" class="icons">
-            <h3>Build</h3>
-          </div>
-          <div class="flip-card-back">
-            <p>
-              Our team is on your operational, technological, and strategic challenges through an in-depth understanding of your
-              business. We design a strategic roadmap to guide your result-oriented goals.
-            </p>
-          </div>
+  <div class="missionStatement"> 
+    <h3>We Turn<br>requirements into<br>remarkable software - efficiently.</h3>
+    <h4>We Deliver Innovative, Secure, Scalable, and<br>
+    Reliable Digital Solutions for Individuals and<br>
+    Businesses Worldwide.</h4>
+    <button class="getStartedBtn">
+      Get Started <span class="arrow">→</span>
+    </button>
+  </div>
+  <!-- Chat Toggle Button -->
+<button class="chat-button" (click)="openChat()">
+  <img [src]="message" alt="Chat">
+</button>
+
+
+<div *ngIf="isChatOpen" class="chat-box">
+  <div class="chat-header">
+    <h4>Let's Talk</h4>
+    <button class="close-btn" (click)="closeChat()">×</button>
+  </div>
+  <div class="chat-body">
+    <p>Hello! How can we help you today?</p>
+  </div>
+  <div class="chatInput">
+    <input type="text" placeholder="Ask Anything" class="chatArea">
+  <button class="textInputSendBtn">Send</button>
+  </div>
+</div>
+
+  <img [src]="teamOfEngineers" alt="Team of Software Engineers" class="teamImage">
+  <div class="flipcard-wrapper">
+    <h2 class="commitment-heading">
+      We Are Committed to <span class="scrambled-word">{{ displayedWord }}</span>
+    </h2>       
+</div>
+  <div class="card-container">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img [src]="build" alt="Build" class="icons">
+          <h3>Build</h3>
+        </div>
+        <div class="flip-card-back">
+          <p>
+            Our team is on your operational, technological, and strategic challenges through an in-depth understanding of your
+            business. We design a strategic roadmap to guide your result-oriented goals.
+          </p>
         </div>
       </div>
-    
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img [src]="implement" alt="Implement" class="icons">
-            <h3>Implement</h3>
-          </div>
-          <div class="flip-card-back">
-            <p>
-              We promptly put together your nearshore engineering idea to fulfill your specific requirements. We create
-              the most elegant solution for your difficulties by combining our deep tech expertise, Top 1% Tech Talent, and
-              industry-specific experience.
-            </p>
-          </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img [src]="implement" alt="Implement" class="icons">
+          <h3>Implement</h3>
+        </div>
+        <div class="flip-card-back">
+          <p>
+            We promptly put together your nearshore engineering idea to fulfill your specific requirements. We create
+            the most elegant solution for your difficulties by combining our deep tech expertise, Top 1% Tech Talent, and
+            industry-specific experience.
+          </p>
         </div>
       </div>
-    
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img [src]="transform" alt="Transform" class="icons">
-            <h3>Transform</h3>
-          </div>
-          <div class="flip-card-back">
-            <p>
-              Bolstered by our team, your digital transformation swiftly gains speed and evolves into a digital acceleration.
-              This process places the foundation for a more efficient and strong business that can meet demands at scale.
-            </p>
-          </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img [src]="transform" alt="Transform" class="icons">
+          <h3>Transform</h3>
+        </div>
+        <div class="flip-card-back">
+          <p>
+            Bolstered by our team, your digital transformation swiftly gains speed and evolves into a digital acceleration.
+            This process places the foundation for a more efficient and strong business that can meet demands at scale.
+          </p>
         </div>
       </div>
-    </div>    
+    </div>
+  </div>    
 </section>
-<section id="services">  </section>
-<section id="technology">  </section>
+
+
+<section id="WhyUs">  
+    <h1 class="WhatMakesUsDiffernt">What Makes Us Different</h1>
+    <h1 class="process">Smooth, Strategic and Simple Process</h1>
+    <h3>Our process is designed to be seamless and smart—built around your goals, streamlined for results, and easy every step of the way.</h3>
+    
+    <div class="theProcess">
+      <div class="process-card">
+        <div class="icon"><i class="fas fa-lightbulb"></i></div>
+        <h3>Idea</h3>
+        <p>It all starts with your vision. We help shape raw ideas into actionable concepts.</p>
+      </div>
+    
+      <div class="process-card">
+        <div class="icon"><i class="fas fa-pencil-ruler"></i></div>
+        <h3>Plan</h3>
+        <p>We turn concepts into clear, strategic plans with timelines, goals, and roadmaps.</p>
+      </div>
+    
+      <div class="process-card">
+        <div class="icon"><i class="fas fa-code"></i></div>
+        <h3>Build</h3>
+        <p>Our expert team develops robust, scalable software tailored to your needs.</p>
+      </div>
+    
+      <div class="process-card">
+        <div class="icon"><i class="fas fa-rocket"></i></div>
+        <h3>Test & Launch</h3>
+        <p>Thorough testing ensures reliability. We launch smoothly with zero guesswork.</p>
+      </div>
+    
+      <div class="process-card">
+        <div class="icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Grow</h3>
+        <p>Post-launch, we help you evolve—scaling your product and driving results.</p>
+      </div>
+    </div>
+
+
+
+</section>
+
+<section id="services"> 
+
+  <h3>Our Services</h3>
+  <ul class="services-list">
+    <li>
+      <img [src]="consulting" alt="Consulting">
+      Consulting
+    </li>
+    <li>
+      <img [src]="integration" alt="Integration">
+      Integration
+    </li>
+    <li>
+      <img [src]="support" alt="Support">
+      Support
+    </li>
+  </ul>
+
+  <h3>Expertise</h3>
+  <h2>Hire Permanent and Remote Developers</h2>
+  <h5>From full-time remote engineering teams to hourly contractors, work with remote developers as needed</h5>
+
+  <h3>Specialized</h3>
+  <h2>Specialized Staff We Provide</h2>
+
+  <div class="roles-grid">
+    <div class="role-card">
+      <img [src]="fullstackEngineer" alt="FullStack Engineer">
+      <p>FullStack Engineers</p>
+    </div>
+    <div class="role-card">
+      <img [src]="frontendDeveloper" alt="Frontend Developer">
+      <p>Frontend Developers</p>
+    </div>
+    <div class="role-card">
+      <img [src]="qaEngineer" alt="QA Engineer">
+      <p>QA Engineers</p>
+    </div>
+    <div class="role-card">
+      <img [src]="productDesigner" alt="Product Designer">
+      <p>Product Designers</p>
+    </div>
+    <div class="role-card">
+      <img [src]="databaseAdmin" alt="Database Admin">
+      <p>Database Admins</p>
+    </div>
+    <div class="role-card">
+      <img [src]="angularDeveloper" alt="Angular Developer">
+      <p>Angular Developers</p>
+    </div>
+    <div class="role-card">
+      <img [src]="devopsEngineer" alt="DevOps Engineer">
+      <p>DevOps Engineers</p>
+    </div>
+    <div class="role-card">
+      <img [src]="javaDeveloper" alt="Java Developer">
+      <p>JAVA Developers</p>
+    </div>
+    <div class="role-card">
+      <img [src]="mobileAppsDeveloper" alt="Mobile Apps Developer">
+      <p>Mobile Apps Developers</p>
+    </div>
+    <div class="role-card">
+      <img [src]="aiMlEngineer" alt="AI and ML Engineer">
+      <p>AI and ML Engineers</p>
+    </div>
+    <div class="role-card">
+      <img [src]="dataEngineer" alt="Data Engineer">
+      <p>Data Engineers</p>
+    </div>
+    <div class="role-card">
+      <img [src]="applicationSecurityEngineer" alt="Application Security Engineer">
+      <p>Application Security Engineers</p>
+    </div>
+    <div class="role-card">
+      <img [src]="solutionArchitect" alt="Solution Architect">
+      <p>Solution Architects</p>
+    </div>
+  </div>
+
+</section>
+
+<section id="technologies">
+  <h3>Technologies We Use</h3>
+  <div class="marquee-container">
+    <div class="marquee-track">
+      <div class="tech-card" *ngFor="let tech of [
+        { img: react, name: 'React' },
+        { img: angular, name: 'Angular' },
+        { img: springboot, name: 'Spring Boot' },
+        { img: express, name: 'Express' },
+        { img: typescript, name: 'TypeScript' },
+        { img: javaicon, name: 'Java' },
+        { img: csharp, name: 'C#' },
+        { img: html5, name: 'HTML5' },
+        { img: css, name: 'CSS' },
+        { img: nextjs, name: 'Next.js' }
+      ]">
+        <img [src]="tech.img" [alt]="tech.name">
+        <p>{{ tech.name }}</p>
+      </div>
+      <div class="tech-card" *ngFor="let tech of [
+        { img: react, name: 'React' },
+        { img: angular, name: 'Angular' },
+        { img: springboot, name: 'Spring Boot' },
+        { img: express, name: 'Express' },
+        { img: typescript, name: 'TypeScript' },
+        { img: javaicon, name: 'Java' },
+        { img: csharp, name: 'C#' },
+        { img: html5, name: 'HTML5' },
+        { img: css, name: 'CSS' },
+        { img: nextjs, name: 'Next.js' }
+      ]">
+        <img [src]="tech.img" [alt]="tech.name">
+        <p>{{ tech.name }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="contact">
+<img [src]="signuppic" [alt]="signuppic" class="signuppic">
+<div class="consultation-form">
+  <h2>Connect With Your Next Great Hire Today!</h2>
+
+  <form [formGroup]="consultationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+      <div class="form-half">
+        <label for="organization">Organization Name</label>
+        <input id="organization" formControlName="organization" placeholder="Organization Name (optional)" />
+      </div>
+
+      <div class="form-half">
+        <label for="fullname">Full Name</label>
+        <input id="fullname" formControlName="fullname" placeholder="Full Name" />
+        <p *ngIf="consultationForm.get('fullname')?.touched && consultationForm.get('fullname')?.invalid">
+          Full Name is required.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="form-half">
+        <label for="phone">Phone Number</label>
+        <input id="phone" formControlName="phone" placeholder="Phone Number" />
+        <p *ngIf="consultationForm.get('phone')?.touched && consultationForm.get('phone')?.invalid">
+          Phone Number is required.
+        </p>
+      </div>
+
+      <div class="form-half">
+        <label for="email">Email Address</label>
+        <input id="email" formControlName="email" placeholder="Email Address" />
+        <p *ngIf="consultationForm.get('email')?.touched && consultationForm.get('email')?.invalid">
+          A valid Email is required.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group-details">
+      <label for="details">Project Details</label>
+      <textarea id="details" formControlName="details" placeholder="Project Details"></textarea>
+      <p *ngIf="consultationForm.get('details')?.touched && consultationForm.get('details')?.invalid">
+        Project Details are required.
+      </p>
+    </div>
+
+    <div class="form-group checkbox">
+      <label class="terms">
+        <input type="checkbox" formControlName="termsAccepted" />
+        By sending this form I confirm that I have read and accept the <a href="#">Privacy Policy</a>.
+      </label>
+      <p *ngIf="consultationForm.get('termsAccepted')?.touched && consultationForm.get('termsAccepted')?.invalid">
+        You must accept the Privacy Policy.
+      </p>
+    </div>
+
+    <button type="submit">
+      Book a consultation →
+    </button>
+  </form>
+  </div>
+</section>
 <section id="careers">  </section>
 <section id="portfolio">  </section>
 <section id="contact">  </section>
