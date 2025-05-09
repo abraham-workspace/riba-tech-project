@@ -2,28 +2,30 @@ name: Riba Tech
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main  # Trigger action on push to the main branch
   pull_request:
-    branches: [main]
+    branches:
+      - main  # Trigger action on pull request to main branch
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-latest  # You mentioned wanting Windows; adjust as needed
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Use your desired Node.js version
 
-      - name: Install Dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install  # Install your project's dependencies
 
-      - name: Build Project
-        run: npm run build
+    - name: Build the project
+      run: npm run build --prod  # Run production build to optimize your CSS
 
-      - name: Run Tests
-        run: npm test
+    - name: Deploy to Vercel (example)
+      run: npm run deploy  # If you have a deployment script set up (Vercel or any other)
