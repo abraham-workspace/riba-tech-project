@@ -44,6 +44,9 @@ export class AppComponent implements OnInit {
   transform = 'Transform.png';
   implement = 'Implement.png';
   message = 'chat.png';
+ instagram = 'instagram.png';
+  linkedin= 'linkedin.png';
+ twitter = 'twitter.png';
 
   // Chat state
   isChatOpen = false;

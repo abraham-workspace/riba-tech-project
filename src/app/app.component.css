@@ -1,4 +1,5 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 html {
     scroll-behavior: smooth;
@@ -811,7 +812,7 @@ background: #f1eeee;
   .consultation-form {
     position: absolute;
     margin-top: 40px;
-    right: -80px;
+    right: -0px;
     width: 590px; 
     height: 550px; 
     background: #fff;
@@ -835,18 +836,25 @@ background: #f1eeee;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 83px;
     height: 100%;
   }
   
-  .form-group {
-    margin-bottom: 20px;
+  .form-group1 {
+    margin-bottom: -79px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top:20px;
   }
-  
-  .form-group-flex {
-    display: flex; 
-    gap: 10px; 
+  .form-group2 {
+    margin-bottom: -59px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top:20px;
   }
+
   
   .form-half {
     width: 240px;
@@ -857,7 +865,13 @@ background: #f1eeee;
     margin-right: 0;
   }
   
-  .form-group label {
+  .form-group1 label {
+    font-weight: bold;
+    margin-bottom: 7.5px; 
+    display: block;
+    font-size: 0.75rem; 
+  }
+  .form-group2 label {
     font-weight: bold;
     margin-bottom: 7.5px; 
     display: block;
@@ -881,28 +895,27 @@ background: #f1eeee;
   .checkbox {
     font-size: 0.75rem; 
     color: #555;
+    margin-right: 66px;
+
   }
   
   .checkbox input {
-    margin-right: 6px;
+    margin-right: -86px;
   }
   
-  button {
+  .consultbtn {
     padding: 8px 14px; 
     background-color: #0078d4;
     color: #fff;
     border: none;
     border-radius: 5px;
-    font-weight: 600;
     cursor: pointer;
-    align-self: flex-start;
+    align-self:center;
     transition: background-color 0.3s ease;
     font-size: 0.75rem;
+    margin-bottom: 60px;
   }
   
-  button:hover {
-    background-color: #005fa3;
-  }
   
   .validation p {
     color: red;
@@ -912,11 +925,16 @@ background: #f1eeee;
   
   .terms {
     display: flex;
+    align-items: flex-start;
     align-items: center;
     font-size: 0.75rem; 
     color: #555;
+  
   }
-
+  .terms a {
+    width: 100px;
+    margin-bottom: 15px;
+  }
   
   @media (max-width: 730px) {
     .consultation-form {
@@ -936,15 +954,17 @@ background: #f1eeee;
     }
   }
   .form-group-details {
-    margin-bottom: 15px; 
+  margin-bottom: 15px;
   }
   
   .form-group-details label {
     font-weight: bold;
-    display: block;
+    display: flex;
     margin-bottom: 5px; 
     font-size: .8rem; 
     color: #333; 
+    justify-content: center;
+    align-items: center;
   }
   
   .form-group-details textarea {
@@ -963,5 +983,138 @@ background: #f1eeee;
     margin-top: 5px; 
     margin-bottom: 0;
   }
-  
-  
+  #contact {
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+  margin-top: 60px;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: poppins;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+.footer-section h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-section h3 {
+  font-weight: 100;
+  font-size: 18px;
+  color: #555;
+  margin: 6px 0;
+}
+
+.footer-contact h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #000000;
+}
+.reminderText{
+  font-size: 15px;
+  color: #000000;
+}
+
+
+.footer-section i {
+  color: #007BFF;
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+h3 a {
+  text-decoration: none; 
+  color: #007BFF; 
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+h3 a i {
+  font-size: 18px; 
+}
+.socials {
+  display: flex;
+  justify-content: flex-start; 
+  gap: 20px; 
+  margin-top: 28px; 
+}
+
+.socials img {
+  width: 25px; 
+  height: 25px; 
+  transition: transform 0.3s ease-in-out; 
+  cursor: pointer; 
+}
+
+.socials img:hover {
+  transform: scale(1.1); 
+}
+@media (max-width: 768px) {
+  .socials {
+    gap: 15px; 
+  }
+
+  .socials img {
+    width: 25px;
+    height: 25px;
+  }
+}
+.stretching-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  margin-top: 10px;
+  color: #3498db; 
+  font-size: 13px; 
+  font-weight: bold; 
+  padding: 0 20px;
+  white-space: nowrap;
+  overflow: hidden; 
+  position: relative;
+  transform: scale(0); 
+  opacity: 0; 
+  animation: stretchText 5s ease-out infinite 4s; 
+  margin-bottom: -23px;
+}
+
+@keyframes stretchText {
+  10% {
+    transform: scale(0);
+    opacity: 0; 
+  }
+  50% {
+    transform: scale(1.2); 
+    opacity: 1; 
+  }
+  100% {
+    transform: scale(1); 
+    opacity: 1; 
+  }
+}

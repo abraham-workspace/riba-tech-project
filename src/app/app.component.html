@@ -1,4 +1,5 @@
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,7 +50,7 @@
 
 
 <!-- Sections -->
-<section id="framework"> 
+<section id="framework"  class="scroll-reveal"> 
   <div class="missionStatement"> 
     <h3>We Turn<br>requirements into<br>remarkable software - efficiently.</h3>
     <h4>We Deliver Innovative, Secure, Scalable, and<br>
@@ -59,7 +60,7 @@
       Get Started <span class="arrow">→</span>
     </button>
   </div>
-  <!-- Chat Toggle Button -->
+
 <button class="chat-button" (click)="openChat()">
   <img [src]="message" alt="Chat">
 </button>
@@ -301,7 +302,7 @@
   <h2>Connect With Your Next Great Hire Today!</h2>
 
   <form [formGroup]="consultationForm" (ngSubmit)="onSubmit()">
-    <div class="form-group row">
+    <div class="form-group1 row">
       <div class="form-half">
         <label for="organization">Organization Name</label>
         <input id="organization" formControlName="organization" placeholder="Organization Name (optional)" />
@@ -316,7 +317,7 @@
       </div>
     </div>
 
-    <div class="form-group row">
+    <div class="form-group1 row">
       <div class="form-half">
         <label for="phone">Phone Number</label>
         <input id="phone" formControlName="phone" placeholder="Phone Number" />
@@ -334,7 +335,7 @@
       </div>
     </div>
 
-    <div class="form-group-details">
+    <div class="form-group-details" >
       <label for="details">Project Details</label>
       <textarea id="details" formControlName="details" placeholder="Project Details"></textarea>
       <p *ngIf="consultationForm.get('details')?.touched && consultationForm.get('details')?.invalid">
@@ -342,17 +343,18 @@
       </p>
     </div>
 
-    <div class="form-group checkbox">
+    <div class="checkbox">
       <label class="terms">
         <input type="checkbox" formControlName="termsAccepted" />
-        By sending this form I confirm that I have read and accept the <a href="#">Privacy Policy</a>.
+        By sending this form I confirm that I have read and accept the Privacy Policy.
       </label>
+      <a href="#">Privacy Policy</a>
       <p *ngIf="consultationForm.get('termsAccepted')?.touched && consultationForm.get('termsAccepted')?.invalid">
         You must accept the Privacy Policy.
       </p>
     </div>
 
-    <button type="submit">
+    <button type="submit" class="consultbtn">
       Book a consultation →
     </button>
   </form>
@@ -360,4 +362,66 @@
 </section>
 <section id="careers">  </section>
 <section id="portfolio">  </section>
-<section id="contact">  </section>
+
+<section id="contact">
+  <div class="footerContent">
+    <div class="footer-section logo-section">
+      <div class="logo">
+        Riba<sup class="super-tech">TECH</sup>
+      </div>
+      <div class="footer-contact">
+        <h3><i class="fas fa-users"></i> We are a Team of Expertly trained, tested, elite software developers</h3>
+        <h3><i class="fas fa-phone"></i> 0768793478</h3>
+        <h3><i class="fas fa-envelope"></i> {{ 'joel.irungu00@gmail.com' }}</h3>
+        <h3><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</h3>
+        <h3>
+          <a href="">
+            <i class="fas fa-link"></i> Student Offer
+          </a>
+        </h3>
+        <h3><i class="fas fa-share-alt"></i> Follow Us</h3>
+<div class="socials">
+  <img [src]="instagram" alt="Intagram">
+  <img [src]="linkedin" alt="Linkedin">
+  <img [src]="twitter" alt="Twitter">
+
+</div>
+
+      </div>
+    </div>
+
+    <div class="footer-section footer-services">
+      <h2> Services</h2>
+      <h3>Consultation</h3>
+      <h3>Integration</h3>
+      <h3>Support</h3>
+      <h3>Featured Projects</h3>
+      <h3>More</h3>
+    </div>
+    <div class="footer-section footer-company">
+      <h2> Company</h2>
+      <h3>About Us</h3>
+      <h3>Success Stories</h3>
+      <h3>Privacy Policy</h3>
+      <h3>Terms and Conditions</h3>
+      <h3>Feedback</h3>      
+    </div>
+
+    <div class="footer-section footer-startWithUs">
+      <h2> Easy to Start</h2>
+      <h3>You Ask</h3>
+      <h3>We Proceed</h3>
+      <h3>Negotiate</h3>
+      <h3>We Deliver</h3>
+      <h3>Portfolio</h3>
+    </div>
+
+  </div>
+  <h3 class="stretching-text">
+    Turning Yours Ideas into Digital Reality
+  </h3>
+</section>
+
+
+
+
