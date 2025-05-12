@@ -15,7 +15,7 @@ export interface ConsultationFormData{
   providedIn: 'root'
 })
 export class MailService {
- private apiUrl = 'http://localhost:3000/api/v1/consultations';
+ private apiUrl = 'https://techribabackend.onrender.com/api/v1/consultations';
   constructor(private http: HttpClient) { }
 
   submitConsultation(data: ConsultationFormData): Observable<any> {
