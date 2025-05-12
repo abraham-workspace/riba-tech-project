@@ -2,11 +2,13 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { MailService, ConsultationFormData } from '@app/Services/mail/mail.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [MatIconModule, CommonModule, ReactiveFormsModule],
+  imports: [MatIconModule, CommonModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -44,9 +46,9 @@ export class AppComponent implements OnInit {
   transform = 'Transform.png';
   implement = 'Implement.png';
   message = 'chat.png';
- instagram = 'instagram.png';
-  linkedin= 'linkedin.png';
- twitter = 'twitter.png';
+  instagram = 'instagram.png';
+  linkedin = 'linkedin.png';
+  twitter = 'twitter.png';
 
   // Chat state
   isChatOpen = false;
@@ -67,7 +69,10 @@ export class AppComponent implements OnInit {
 
   consultationForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private consultationService: MailService
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -87,7 +92,26 @@ export class AppComponent implements OnInit {
 
   onSubmit(): void {
     if (this.consultationForm.valid) {
-      console.log('Form Submitted:', this.consultationForm.value);
+      const formData: ConsultationFormData = {
+        organization_name: this.consultationForm.value.organization,
+        full_name: this.consultationForm.value.fullname,
+        phone: this.consultationForm.value.phone,
+        email: this.consultationForm.value.email,
+        project_details: this.consultationForm.value.details,
+        terms_accepted: this.consultationForm.value.termsAccepted,
+      };
+
+      this.consultationService.submitConsultation(formData).subscribe({
+        next: (res) => {
+          console.log('Form submitted successfully:', res);
+          alert('Your consultation request has been submitted! Check your mail for more information.Thank you!');
+          this.consultationForm.reset();
+        },
+        error: (err) => {
+          console.error('Submission error:', err);
+          alert('Something went wrong. Please try again.');
+        }
+      });
     } else {
       this.consultationForm.markAllAsTouched();
     }
